@@ -60,5 +60,47 @@ namespace HappyCalendarAPI.Controllers
             return _result;
 
         }
+
+        [HttpGet, Route("GetProjects")]
+        public ReturnModel GetProjects()
+        {
+            try
+            {
+                _result.Data = _categoryBLL.GetProjects();
+                _result.Description = "Get Projects";
+                _result.Success = true;
+            }
+            catch (Exception err)
+            {
+                _result.Success = false;
+                _result.Description = "Unexpected error";
+                _result.Data = null;
+
+                err.Log();
+            }
+            return _result;
+        }
+
+        [HttpPost, Route("AddProject")]
+        public ReturnModel AddProject([FromBody]Project model)
+        {
+            try
+            {
+                _categoryBLL.AddProject(model, ref _result);
+                _result.Data = model;
+                _result.Description = "A new project has been successfully added.";
+                _result.Success = true;
+            }
+            catch (Exception err)
+            {
+                _result.Success = false;
+                _result.Description = "Unexpected error";
+                _result.Data = null;
+
+                err.Log();
+            }
+            return _result;
+
+        }
     }
 }

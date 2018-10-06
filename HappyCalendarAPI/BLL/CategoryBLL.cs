@@ -34,5 +34,25 @@ namespace HappyCalendarAPI.BLL
             }
 
         }
+
+        public List<Project> GetProjects()
+        {
+            return _categoryDAL.GetProjects();
+        }
+
+        public bool AddProject(Project model, ref ReturnModel result)
+        {
+            using (var connection = new SqlConnection(BaseDAL.ConnectionStringSqlServer))
+            {
+                connection.Open();
+                using (var transaction = connection.BeginTransaction())
+                {
+                    _categoryDAL.AddProject(model, connection, transaction);
+                    transaction.Commit();
+                }
+                return true;
+            }
+
+        }
     }
 }

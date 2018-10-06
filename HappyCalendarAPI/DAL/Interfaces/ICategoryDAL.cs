@@ -12,5 +12,9 @@ namespace HappyCalendarAPI.DAL.Interfaces
     {
         List<Area> GetAreas();
         void AddArea(Area model, SqlConnection connection, SqlTransaction transaction);
+
+        List<Project> GetProjects();
+        void AddProject(Project model, SqlConnection connection, SqlTransaction transaction);
+
     }
 }

@@ -11,5 +11,9 @@ namespace HappyCalendarAPI.BLL.Interfaces
     {
         List<Area> GetAreas();
         bool AddArea(Area model, ref ReturnModel result);
+
+        List<Project> GetProjects();
+
+        bool AddProject(Project model, ref ReturnModel result);
     }
 }

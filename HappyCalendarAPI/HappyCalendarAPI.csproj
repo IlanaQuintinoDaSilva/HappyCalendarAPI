@@ -113,6 +113,7 @@
     <Compile Include="LIB\Error.cs" />
     <Compile Include="Models\Aplicacao.cs" />
     <Compile Include="Models\Area.cs" />
+    <Compile Include="Models\Project.cs" />
     <Compile Include="Models\ReturnModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
